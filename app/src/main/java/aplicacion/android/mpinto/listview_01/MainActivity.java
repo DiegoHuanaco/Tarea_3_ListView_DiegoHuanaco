@@ -27,6 +27,18 @@ public class MainActivity extends AppCompatActivity {
         nombres.add("juan");
         nombres.add("jorge");
         nombres.add("matias");
+        nombres.add("diego");
+        nombres.add("juan");
+        nombres.add("jorge");
+        nombres.add("matias");
+        nombres.add("diego");
+        nombres.add("juan");
+        nombres.add("jorge");
+        nombres.add("matias");
+        nombres.add("diego");
+        nombres.add("juan");
+        nombres.add("jorge");
+        nombres.add("matias");
         //forma visual que mostraremos los datos
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombres);
         //Enlazamos el adaptador con el listview

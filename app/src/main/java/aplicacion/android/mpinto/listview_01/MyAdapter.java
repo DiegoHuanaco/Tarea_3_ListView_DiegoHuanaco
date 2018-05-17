@@ -1,6 +1,7 @@
 package aplicacion.android.mpinto.listview_01;
 
 import android.content.Context;
+import android.support.v4.widget.ViewDragHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,21 +35,31 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        //Copiamos la vista
-        View v = convertView;
+        //Patron View holder
+        ViewHolder holder;
 
-        //Inflamos la vista que nos ha llegado a nuestro layout
-        LayoutInflater layoutInflater = LayoutInflater.from(this.context);
-        v = layoutInflater.inflate(R.layout.list_item,null);
+        if(convertView == null){
+            //Inflamos la vista que nos ha llegado a nuestro layout
+            LayoutInflater layoutInflater = LayoutInflater.from(this.context);
+            convertView = layoutInflater.inflate(R.layout.list_item,null);
+            holder = new ViewHolder();
 
+            //Referencias el elemento a modificar y lo rellenamos
+            holder.nametextView = (TextView) convertView.findViewById(R.id.textView);
+            convertView.setTag(holder);
+        }else {
+            holder = (ViewHolder) convertView.getTag();
+        }
         //Nos traemos el valor actual dependiente de la posición
         String nombreActual = nombres.get(position);
-        //nombreActual = getItem(position);
 
         //Referencias el elemento a modificar y lo rellenamos
-        TextView textView = (TextView) v.findViewById(R.id.textView);
-        textView.setText(nombreActual);
+        holder.nametextView.setText(nombreActual);
 
-        return v;
+        return convertView;
+    }
+
+    static class ViewHolder {
+        public TextView nametextView;
     }
 }
