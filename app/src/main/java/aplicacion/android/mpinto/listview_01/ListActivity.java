@@ -3,17 +3,15 @@ package aplicacion.android.mpinto.listview_01;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity {
     private ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, "clic en "+nombres.get(i), Toast.LENGTH_LONG).show();
+                Toast.makeText(ListActivity.this, "clic en "+nombres.get(i), Toast.LENGTH_LONG).show();
             }
         });
 
